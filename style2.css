@@ -1,0 +1,49 @@
+
+body{
+    background-size: cover;
+}
+
+.lhead {
+    
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+    border: 2px solid teal;
+    background-color: teal;
+    color: white;
+    border-radius: .5em;
+}
+.mb-3 {
+    text-emphasis: none;
+}
+
+.btn {
+    color:white;
+    background-color:rgb(0, 109, 128);
+    border:rgb(0, 0, 0);
+    width: 100%;
+}
+
+.reg {
+    text-decoration: none;
+}
+
+.btn:hover{
+    background-color: rgb(9, 116, 55);
+    border: rgb(9, 116, 55)
+}
+
+.shead {
+    text-align: center;
+    border: 2px solid rgb(0, 13, 128);
+    background-color: rgb(34, 0, 128);
+    color: white;
+    border-radius: .5em;
+}
+
+.signup {
+    border: 3px solid grey;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 3%;
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style2.css">
+    <link rel="stylesheet" href="./style.css">
+    
+    
+<title>Employment Registration</title>
+</head>
+<body >
+<div style="background-image: url('./img/bg2.png');">
+    <div>
+        <form class="signup" action="login.html" onsubmit="return nameValidation();">
+            <div class="shead">
+                <h2 >SIGN UP</h2>
+            </div>
+            <br>
+            <br>
+
+            <div class="mb-3">
+              <label for="UserName" class="form-label" >First Name</label>
+              <input type="text" class="form-control" id="username" placeholder="first name"  >
+              <label id="error1" ></label>
+              
+            </div>
+            <div class="mb-3">
+                <label for="UserName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lname" placeholder="last name"  >
+                <label id="error1" ></label>
+                
+              </div>
+
+            <div class="mb-3">
+              <label for="PhoneNumber" class="form-label" >Phone Number</label>
+              <input type="tel" class="form-control" id="num" placeholder="XXXXXXXXXX or XXX-XXX-XXXX or XXX.XXX.XXXX or XXX XXX XXXX" >
+              <label id="error2"></label>
+              
+            </div>
+            
+            <div class="mb-3">
+              <label for="InputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="mail"  aria-describedby="emailHelp" placeholder="mail@abc.com" >
+              <label id="error3"></label>
+            </div>
+
+            <div class="mb-3">
+                <label for="Inputgender" class="form-label">Gender</label><br>
+                <input type="radio" id="age1" name="age" value="30">
+                <label >Female</label><br>
+                <input type="radio" id="age2" name="age" value="60">
+                <label >Male</label><br>  
+                <input type="radio" id="age3" name="age" value="100">
+                <label >Other</label><br>
+                
+              </div>
+            
+            <div class="mb-3">
+              <label for="InputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="pwd1" >
+              <label id="error4"></label>
+            </div>
+           
+
+            <div class="mb-3">
+              <label for="InputPassword2" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="pwd2" >
+              <label id="error5"></label>
+            </div>
+            <div class="mb-3">
+                <label for="Inputage" class="form-label">Age Group</label><br>
+                <input type="radio" id="age1" name="age" value="30">
+                <label for="age1">0 - 30</label><br>
+                <input type="radio" id="age2" name="age" value="60">
+                <label for="age2">31 - 60</label><br>  
+                <input type="radio" id="age3" name="age" value="100">
+                <label for="age3">61 - 100</label><br>
+              </div>
+
+            <br>
+            <h4>Already have an account?</h4>
+            <a href="login.html" style="text-decoration: none;">Click Here</a>
+            <br>
+            <br>
+            <br>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="Check1" >
+              <label class="form-check-label" for="Check1">I Agree to the Terms and Services </label>
+              <label id="error6"></label>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+    </div>
+</div>
+<script>
+let username = document.getElementById("username");
+let num = document.getElementById("num");
+let mail = document.getElementById("mail");
+let pwd1 = document.getElementById("pwd1");
+let pwd2 = document.getElementById("pwd2");
+let Check1 = document.getElementById("Check1");
+
+let error1 = document.getElementById("error1");
+let error2 = document.getElementById("error2");
+let error3 = document.getElementById("error3");
+let error4 = document.getElementById("error4");
+let error5 = document.getElementById("error5");
+let error6 = document.getElementById("error6");
+let regexpname= /^([A-Za-z]+)$/;
+let regexpnum1= /^([0-9]{10})$/;
+let regexpnum2= /^([0-9]{3}) ([0-9]{3}) ([0-9]{4})$/;
+let regexpnum3= /^([0-9]{3}).([0-9]{3}).([0-9]{4})$/;
+let regexpnum4= /^([0-9]{3})-([0-9]{3})-([0-9]{4})$/;
+let regexpemail= /^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3})?$/;
+let regexppwd= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/; 
+let regexpStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{12,}$/;
+let regexpMedium = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{10,}$/;
+let regexpEnough = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+function nameValidation() {
+        if (regexpname.test(username.value)){
+            error1.innerHTML="valid username";
+            error1.style.color="green";
+            return numValidation();
+        }
+        else {
+            error1.innerHTML="username can only be characters ";
+            error1.style.color="red";
+            return false;
+        }
+    }
+function numValidation() {
+    if(regexpnum1.test(num.value) || regexpnum2.test(num.value) ||  regexpnum3.test(num.value) || regexpnum4.test(num.value) ){
+        error2.innerHTML = "valid phone number";
+        error2.style.color = "green";
+        return mailValidation() ;
+        }
+
+    else {
+        error2.innerHTML = "Accepted formats are: XXXXXXXXXX, XXX-XXX-XXXX, XXX.XXX.XXXX, XXX XXX XXXX";
+        error2.style.color = "red";
+        return false;
+
+    }    
+}
+function mailValidation()   {
+    if(regexpemail.test(mail.value))
+    {
+        error3.innerHTML = "valid mail-id";
+        error3.style.color = "green";
+        return passValidation();
+    }
+    else {
+        error3.innerHTML = "invalid mail-id";
+        error3.style.color = "red";
+        return false;
+    }
+}
+function passValidation() {
+    if(regexppwd.test(pwd1.value))
+    {
+        error4.innerHTML = "valid password";
+        error4.style.color = "green";
+        return passStrength();
+    }
+    else {
+        error4.innerHTML = "must include: minimum 8 characters, atleast one uppercase, and one lower case, must contain atleast one number";
+        error4.style.color = "red";
+        return false;
+    }
+}
+
+function passStrength() {
+    if(regexpStrong.test(pwd1.value))
+    {
+        error4.innerHTML = "strong password";
+        error4.style.color = "green";
+        return passConfirm();
+    }
+    if(regexpMedium.test(pwd1.value))
+    {
+        error4.innerHTML = "medium strong password";
+        error4.style.color = "yellow";
+        return passConfirm();
+    }
+    if(regexpEnough.test(pwd1.value))
+    {
+        error4.innerHTML = "poor strength for password";
+        error4.style.color = "orange";
+        return passConfirm();
+    }
+    else {
+        error4.innerHTML = "weak password";
+        error4.style.color = "red";
+        return false;
+    }   
+}
+function passConfirm() {
+    if(pwd1.value == pwd2.value){
+        error5.innerHTML = "password confirmed";
+        error5.style.color = "green";
+        return checkBox();
+    }
+    else {
+        error5.innerHTML = "wrong password";
+        error5.style.color = "red";
+        return false;
+    }   
+}
+function checkBox() {
+    if(Check1.checked ==1)
+    {
+        return true;
+    }
+    else{  
+        error6.innerHTML="Accept the terms of services.";
+        error6.style.color="red"; 
+        return false;
+    
+         }
+
+}
+    </script>
+</body>
+</html>
